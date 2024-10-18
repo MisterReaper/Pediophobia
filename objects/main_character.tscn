@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://hwxixngelowu"]
 
 [ext_resource type="Script" path="res://objects/main_character.gd" id="1_k0g11"]
-[ext_resource type="Texture2D" uid="uid://dwraxmy4gyjta" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
+[ext_resource type="Texture2D" uid="uid://d2wk4j2qlmedy" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
 [ext_resource type="Script" path="res://objects/key_prompt.gd" id="2_ta3wi"]
 [ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/E-Key.png" id="3_3imsg"]
 
@@ -131,6 +131,7 @@ radius = 9.0
 height = 20.0
 
 [node name="MainCharacter" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_k0g11")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -154,6 +155,7 @@ script = ExtResource("2_ta3wi")
 [node name="FlashLightPlayer" type="AnimationPlayer" parent="FlashLight"]
 
 [node name="CollisionArea2D" type="CollisionShape2D" parent="."]
+z_index = 1
 position = Vector2(0, 17)
 shape = SubResource("CapsuleShape2D_45ds5")
 

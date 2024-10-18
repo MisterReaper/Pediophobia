@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs3hypa2a1jgs"]
+[gd_scene load_steps=13 format=3 uid="uid://cs3hypa2a1jgs"]
 
 [ext_resource type="Texture2D" uid="uid://cd4m2wjqh8w74" path="res://assets/clothes-rack.png" id="1_hd0ik"]
 [ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="3_gk4wl"]
@@ -67,6 +67,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kbgs"]
+size = Vector2(32, 82)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_rua6m")
 script = ExtResource("3_gk4wl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_5kbgs")

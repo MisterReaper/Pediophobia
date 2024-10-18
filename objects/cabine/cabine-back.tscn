@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj8cxb3h5te4e"]
+[gd_scene load_steps=7 format=3 uid="uid://bj8cxb3h5te4e"]
 
 [ext_resource type="Texture2D" uid="uid://c8ls2r6awqbry" path="res://assets/cabine/cabineBack.png" id="1_uu0vp"]
 [ext_resource type="Script" path="res://scripts/cabine/cabine_back.gd" id="2_ey1o8"]
@@ -25,6 +25,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdxnp"]
+size = Vector2(32, 9)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_4qxav")
 script = ExtResource("2_ey1o8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_gdxnp")
