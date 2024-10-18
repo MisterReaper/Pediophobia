@@ -30,22 +30,22 @@ func handleInput():
 	if OS.is_debug_build() and Input.is_key_pressed(KEY_4):
 		deathBy("kill_switch")
 	
-	if Input.is_key_pressed(KEY_F) || Input.is_key_pressed(KEY_SPACE):
+	if Input.is_action_just_pressed("interact"):
 		contextAction()
-		print_debug("Button Pressed")
 	
-	var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
-	velocity = moveDirection * SPEED
-	if moveDirection.length():
-		if moveDirection.y:
-			changeDirection("down" if moveDirection.y > 0.0 else "up")
+	if inHiding == false:
+		var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
+		velocity = moveDirection * SPEED
+		if moveDirection.length():
+			if moveDirection.y:
+				changeDirection("down" if moveDirection.y > 0.0 else "up")
+			else:
+				changeDirection("left" if moveDirection.x < 0.0 else "right")
+			#states.send_event("run")
+			#$Sprite.playAnimation("walk_" + direction)
 		else:
-			changeDirection("left" if moveDirection.x < 0.0 else "right")
-		#states.send_event("run")
-		#$Sprite.playAnimation("walk_" + direction)
-	else:
-		#states.send_event("idle")
-		pass
+			#states.send_event("idle")
+			pass
 
 func changeDirection(newDirection):
 	if direction != newDirection:
@@ -60,20 +60,34 @@ func _physics_process(_delta):
 func _on_interact_box_area_entered(area: Area2D) -> void:
 	if area != null:
 		if $InteractBox.get_overlapping_areas().size() > 0:
-			pass
+			print_debug($InteractBox.get_overlapping_areas().size() )
+			$KeyPrompt.visible = true
 	pass
 
 func _on_interact_box_area_exited(area: Area2D) -> void:
-	if $InteractBox.get_overlapping_areas() == null : 
-		keyPrompt.emit
+	print_debug($InteractBox.get_overlapping_areas().size() )
+	if $InteractBox.get_overlapping_areas() == null || $InteractBox.get_overlapping_areas().size() == 0: 
+		$KeyPrompt.visible = false
+		
 
 func contextAction():
 	if $InteractBox.get_overlapping_areas() == null : return
 	for area in $InteractBox.get_overlapping_areas():
-		print_debug(area.name)
-		if area.name == "BatteryPickUpArea":
-			if area.get_parent().has_method("collect"):
-				area.get_parent().collect()
+		print_debug(area.name + " " + str(inHiding) + " " + str(area.get_parent()))
+		if area.name == "CabineInteractionBox":
+			if inHiding == false && area.get_parent().has_method("closeCabine"):
+				area.get_parent().closeCabine()
+				inHiding = true
+				visible = false
+				print_debug("hide")
+				return
+			if inHiding == true && area.get_parent().has_method("leaveCabine"):
+				inHiding = false
+				visible = true
+				area.get_parent().leaveCabine()
+				print_debug("leave")
+				return
+		return
 
 func deathBy(enemy):
 	print_debug(enemy + " killed player")

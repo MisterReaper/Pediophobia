@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://objects/main_character.gd" id="1_k0g11"]
 [ext_resource type="Texture2D" uid="uid://dwraxmy4gyjta" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
 [ext_resource type="Script" path="res://objects/key_prompt.gd" id="2_ta3wi"]
+[ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/E-Key.png" id="3_3imsg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl4pd"]
 atlas = ExtResource("2_3jv04")
@@ -125,9 +126,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_40ura"]
 
-[sub_resource type="Texture2DRD" id="Texture2DRD_jytk2"]
-resource_name = "Prompt"
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45ds5"]
 radius = 9.0
 height = 20.0
@@ -145,7 +143,10 @@ animation = &"walk_down"
 shape = SubResource("CircleShape2D_40ura")
 
 [node name="KeyPrompt" type="Sprite2D" parent="."]
-texture = SubResource("Texture2DRD_jytk2")
+visible = false
+position = Vector2(0, -37)
+scale = Vector2(0.5625, 0.5625)
+texture = ExtResource("3_3imsg")
 script = ExtResource("2_ta3wi")
 
 [node name="FlashLight" type="Node2D" parent="."]
