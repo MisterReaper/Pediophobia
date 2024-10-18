@@ -75,7 +75,7 @@ func contextAction():
 	for area in $InteractBox.get_overlapping_areas():
 		print_debug(area.name + " " + str(inHiding) + " " + str(area.get_parent()))
 		if area.name == "CabineInteractionBox":
-			if inHiding == false && area.get_parent().has_method("closeCabine"):
+			if inHiding == false && area.get_parent().has_method("closeCabine") && area.get_parent().isClosed() != 1:
 				area.get_parent().closeCabine()
 				inHiding = true
 				visible = false

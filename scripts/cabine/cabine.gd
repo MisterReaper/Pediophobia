@@ -21,4 +21,6 @@ func leaveCabine():
 	print_debug("leaving cabine")
 	frame = 0
 
+func isClosed():
+	return frame
 	

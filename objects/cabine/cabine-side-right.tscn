@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://p035ojmkkqqc"]
+[gd_scene load_steps=8 format=3 uid="uid://p035ojmkkqqc"]
 
-[ext_resource type="Texture2D" uid="uid://s37fo1lcvtvt" path="res://assets/cabine/cabineSideRight.png" id="1_7wddv"]
+[ext_resource type="Texture2D" uid="uid://cq6yd4kxlqft4" path="res://assets/cabine/cabineSideRight.png" id="1_7wddv"]
 [ext_resource type="Script" path="res://scripts/cabine/cabine_side_right.gd" id="2_pm3vi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88cpr"]
@@ -28,6 +28,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b282v"]
 size = Vector2(32, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io6li"]
+size = Vector2(33, 26)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_eodhp")
 script = ExtResource("2_pm3vi")
@@ -36,3 +39,9 @@ script = ExtResource("2_pm3vi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_b282v")
+
+[node name="CabineInteractionBox" type="Area2D" parent="."]
+
+[node name="CabineInteractionBox" type="CollisionShape2D" parent="CabineInteractionBox"]
+position = Vector2(-33, 35)
+shape = SubResource("RectangleShape2D_io6li")
