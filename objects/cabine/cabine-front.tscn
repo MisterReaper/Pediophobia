@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcoahqpdeyd0k"]
+
+[ext_resource type="Texture2D" uid="uid://d008wejw2cbta" path="res://assets/cabine/cabineFront.png" id="1_drn8t"]
+[ext_resource type="Script" path="res://scripts/cabine/cabine_front.gd" id="2_jiv5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inuv4"]
+atlas = ExtResource("1_drn8t")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t42v"]
+atlas = ExtResource("1_drn8t")
+region = Rect2(32, 0, 32, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aq0rw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inuv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t42v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_aq0rw")
+script = ExtResource("2_jiv5x")
