@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bcoahqpdeyd0k"]
 
-[ext_resource type="Texture2D" uid="uid://dj67rdeqo7iv7" path="res://assets/cabine/cabineFront.png" id="1_drn8t"]
+[ext_resource type="Texture2D" uid="uid://d008wejw2cbta" path="res://assets/cabine/cabineFront.png" id="1_drn8t"]
 [ext_resource type="Script" path="res://scripts/cabine/cabine_front.gd" id="2_jiv5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_inuv4"]
@@ -29,9 +29,9 @@ animations = [{
 size = Vector2(32, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvl4r"]
-size = Vector2(33, 26)
+size = Vector2(32, 30)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_aq0rw")
 script = ExtResource("2_jiv5x")
 
@@ -44,5 +44,5 @@ shape = SubResource("RectangleShape2D_b0p1d")
 [node name="CabineInteractionBox" type="Area2D" parent="."]
 
 [node name="CabineInteractionBox" type="CollisionShape2D" parent="CabineInteractionBox"]
-position = Vector2(-0.5, 61)
+position = Vector2(0, 56)
 shape = SubResource("RectangleShape2D_vvl4r")
