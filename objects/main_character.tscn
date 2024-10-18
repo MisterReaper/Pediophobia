@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://hwxixngelowu"]
 
 [ext_resource type="Script" path="res://objects/main_character.gd" id="1_k0g11"]
-[ext_resource type="Texture2D" uid="uid://c5tx0t1vcgptq" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
+[ext_resource type="Texture2D" uid="uid://dwraxmy4gyjta" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
 [ext_resource type="Script" path="res://objects/key_prompt.gd" id="2_ta3wi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl4pd"]
@@ -125,10 +125,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_40ura"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45ds5"]
-
 [sub_resource type="Texture2DRD" id="Texture2DRD_jytk2"]
 resource_name = "Prompt"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45ds5"]
+radius = 9.0
+height = 20.0
 
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_k0g11")
@@ -136,17 +138,11 @@ script = ExtResource("1_k0g11")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mgcta")
 animation = &"walk_down"
-frame_progress = 0.599529
 
 [node name="InteractBox" type="Area2D" parent="."]
 
 [node name="InteractArea2D" type="CollisionShape2D" parent="InteractBox"]
 shape = SubResource("CircleShape2D_40ura")
-
-[node name="Collision" type="Area2D" parent="."]
-
-[node name="CollisionArea2D" type="CollisionShape2D" parent="Collision"]
-shape = SubResource("CapsuleShape2D_45ds5")
 
 [node name="KeyPrompt" type="Sprite2D" parent="."]
 texture = SubResource("Texture2DRD_jytk2")
@@ -155,6 +151,10 @@ script = ExtResource("2_ta3wi")
 [node name="FlashLight" type="Node2D" parent="."]
 
 [node name="FlashLightPlayer" type="AnimationPlayer" parent="FlashLight"]
+
+[node name="CollisionArea2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("CapsuleShape2D_45ds5")
 
 [connection signal="area_entered" from="InteractBox" to="." method="_on_interact_box_area_entered"]
 [connection signal="area_exited" from="InteractBox" to="." method="_on_interact_box_area_exited"]

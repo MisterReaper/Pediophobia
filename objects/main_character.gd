@@ -26,11 +26,13 @@ func _process(delta: float) -> void:
 	pass
 
 func handleInput():
+	
 	if OS.is_debug_build() and Input.is_key_pressed(KEY_4):
 		deathBy("kill_switch")
 	
 	if Input.is_key_pressed(KEY_F) || Input.is_key_pressed(KEY_SPACE):
 		contextAction()
+		print_debug("Button Pressed")
 	
 	var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
 	velocity = moveDirection * SPEED
@@ -40,7 +42,7 @@ func handleInput():
 		else:
 			changeDirection("left" if moveDirection.x < 0.0 else "right")
 		#states.send_event("run")
-		#playAnimation("run_" + direction)
+		#$Sprite.playAnimation("walk_" + direction)
 	else:
 		#states.send_event("idle")
 		pass
