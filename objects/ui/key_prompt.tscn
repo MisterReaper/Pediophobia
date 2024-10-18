@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://dklgv7img7af2"]
+[gd_scene load_steps=2 format=3 uid="uid://dklgv7img7af2"]
 
-[node name="KeyPrompt" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/E-Key.png" id="1_itp3u"]
+
+[node name="KeyPrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_vertical_guides_ = [1386.0]
+
+[node name="Node2D" type="TextureRect" parent="."]
+layout_mode = 0
+texture = ExtResource("1_itp3u")
