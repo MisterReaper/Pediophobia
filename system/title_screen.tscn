@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://brp2enh2l67lx"]
 
 [ext_resource type="Script" path="res://system/title_screen.gd" id="1_tiwx2"]
-[ext_resource type="Texture2D" uid="uid://04ro17xo2rkq" path="res://assets/title_screen.png" id="2_58ceg"]
+[ext_resource type="Texture2D" uid="uid://cegdc8mp7u4s5" path="res://assets/title_screen.png" id="2_58ceg"]
 
 [node name="TitleScreen" type="Control"]
 layout_direction = 1
