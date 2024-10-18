@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://brp2enh2l67lx"]
+[gd_scene load_steps=3 format=3 uid="uid://brp2enh2l67lx"]
 
-[node name="TitleScreen" type="Node2D"]
+[ext_resource type="Script" path="res://system/title_screen.gd" id="1_tiwx2"]
+[ext_resource type="Texture2D" uid="uid://04ro17xo2rkq" path="res://assets/title_screen.png" id="2_58ceg"]
+
+[node name="TitleScreen" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tiwx2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_58ceg")
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+offset_right = 55.0
+offset_bottom = 101.0
+alignment = 1
+
+[node name="Start Button" type="Button" parent="FlowContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Credits Button" type="Button" parent="FlowContainer"]
+layout_mode = 2
+text = "Credit"
+
+[node name="Quit Button" type="Button" parent="FlowContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="FlowContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="FlowContainer/Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="FlowContainer/Quit Button" to="." method="_on_quit_button_pressed"]
