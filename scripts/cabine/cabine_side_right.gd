@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends cabine
 class_name cabine_side_right
 
 # Called when the node enters the scene tree for the first time.

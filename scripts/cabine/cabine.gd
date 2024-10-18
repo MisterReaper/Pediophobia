@@ -1,5 +1,7 @@
-extends cabine
-class_name cabine_back
+extends AnimatedSprite2D
+
+class_name cabine
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,3 +12,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func closeCabine():
+	print_debug("is closed now")
+	frame = 1
+	
+func leaveCabine():
+	print_debug("leaving cabine")
+	frame = 0
+
+	
