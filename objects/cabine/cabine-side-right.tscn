@@ -26,7 +26,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b282v"]
-size = Vector2(32, 96)
+size = Vector2(32, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io6li"]
 size = Vector2(33, 26)
@@ -38,6 +38,7 @@ script = ExtResource("2_pm3vi")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_b282v")
 
 [node name="CabineInteractionBox" type="Area2D" parent="."]
