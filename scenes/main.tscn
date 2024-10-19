@@ -481,19 +481,19 @@ position = Vector2(336, 415)
 position = Vector2(336, 448)
 
 [node name="AnimatedSprite2D5" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(592, 90)
+position = Vector2(580, 90)
 
 [node name="AnimatedSprite2D6" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(592, 162)
+position = Vector2(580, 162)
 
 [node name="AnimatedSprite2D7" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(592, 234)
+position = Vector2(580, 234)
 
 [node name="AnimatedSprite2D8" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(592, 307)
+position = Vector2(580, 307)
 
 [node name="AnimatedSprite2D9" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(592, 381)
+position = Vector2(580, 381)
 
 [node name="cabines-back" type="Node" parent="."]
 
@@ -543,4 +543,4 @@ position = Vector2(1067, 601)
 position = Vector2(1099, 601)
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(592, 455)
+position = Vector2(580, 455)
