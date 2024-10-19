@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bj8cxb3h5te4e"]
 
-[ext_resource type="Texture2D" uid="uid://bmuu0lbgxbdhq" path="res://assets/cabine/cabineBack.png" id="1_uu0vp"]
+[ext_resource type="Texture2D" uid="uid://c8ls2r6awqbry" path="res://assets/cabine/cabineBack.png" id="1_uu0vp"]
 [ext_resource type="Script" path="res://scripts/cabine/cabine.gd" id="2_2j3dv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6h1bo"]
