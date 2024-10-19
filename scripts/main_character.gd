@@ -60,10 +60,9 @@ func _physics_process(_delta):
 		move_and_slide()
 
 func _on_interact_box_area_entered(area: Area2D) -> void:
-	if area != null:
-		if $InteractBox.get_overlapping_areas().size() > 0:
-			print_debug($InteractBox.get_overlapping_areas().size() )
-			$KeyPrompt.visible = true
+	print_debug(area.name)
+	if area != null && area.name.contains("Interaction"):
+		$KeyPrompt.visible = true
 	pass
 
 func _on_interact_box_area_exited(area: Area2D) -> void:
