@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd1vg6k3pxe4i"]
+
+[ext_resource type="Script" path="res://scripts/screen_overlay.gd" id="1_8csl1"]
+
+[node name="ScreenOverlay" type="CanvasLayer"]
+script = ExtResource("1_8csl1")
+
+[node name="ObjectiveText" type="RichTextLabel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -181.0
+offset_bottom = 49.0
+grow_horizontal = 0
+bbcode_enabled = true
+fit_content = true

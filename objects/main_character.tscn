@@ -1,9 +1,25 @@
-[gd_scene load_steps=20 format=3 uid="uid://hwxixngelowu"]
+[gd_scene load_steps=24 format=3 uid="uid://hwxixngelowu"]
 
-[ext_resource type="Script" path="res://objects/main_character.gd" id="1_k0g11"]
-[ext_resource type="Texture2D" uid="uid://d2wk4j2qlmedy" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
-[ext_resource type="Script" path="res://objects/key_prompt.gd" id="2_ta3wi"]
+[ext_resource type="Script" path="res://scripts/main_character.gd" id="1_k0g11"]
+[ext_resource type="Texture2D" uid="uid://dwraxmy4gyjta" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
+[ext_resource type="Script" path="res://scripts/key_prompt.gd" id="2_ta3wi"]
 [ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/E-Key.png" id="3_3imsg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rupy"]
+atlas = ExtResource("2_3jv04")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esb5j"]
+atlas = ExtResource("2_3jv04")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv8l3"]
+atlas = ExtResource("2_3jv04")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4ljy"]
+atlas = ExtResource("2_3jv04")
+region = Rect2(288, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl4pd"]
 atlas = ExtResource("2_3jv04")
@@ -55,6 +71,38 @@ region = Rect2(352, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgcta"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rupy")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esb5j")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv8l3")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4ljy")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nl4pd")
@@ -136,7 +184,7 @@ script = ExtResource("1_k0g11")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mgcta")
-animation = &"walk_down"
+animation = &"idle_up"
 
 [node name="InteractBox" type="Area2D" parent="."]
 
