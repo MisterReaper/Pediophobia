@@ -483,20 +483,43 @@ position = Vector2(336, 415)
 [node name="Cabine-Side-Left12" parent="CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 448)
 
-[node name="AnimatedSprite2D5" parent="." instance=ExtResource("2_7ukio")]
+[node name="clothes-rack-big-room" type="Node" parent="."]
+
+[node name="AnimatedSprite2D5" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
 position = Vector2(580, 90)
 
-[node name="AnimatedSprite2D6" parent="." instance=ExtResource("2_7ukio")]
+[node name="AnimatedSprite2D6" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
 position = Vector2(580, 162)
 
-[node name="AnimatedSprite2D7" parent="." instance=ExtResource("2_7ukio")]
+[node name="AnimatedSprite2D7" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
 position = Vector2(580, 234)
 
-[node name="AnimatedSprite2D8" parent="." instance=ExtResource("2_7ukio")]
+[node name="AnimatedSprite2D8" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
 position = Vector2(580, 307)
 
-[node name="AnimatedSprite2D9" parent="." instance=ExtResource("2_7ukio")]
+[node name="AnimatedSprite2D9" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
 position = Vector2(580, 381)
+
+[node name="AnimatedSprite2D" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(580, 455)
+
+[node name="AnimatedSprite2D11" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(768, 90)
+
+[node name="AnimatedSprite2D12" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(768, 162)
+
+[node name="AnimatedSprite2D13" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(768, 234)
+
+[node name="AnimatedSprite2D14" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(768, 307)
+
+[node name="AnimatedSprite2D15" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(768, 381)
+
+[node name="AnimatedSprite2D16" parent="clothes-rack-big-room" instance=ExtResource("2_7ukio")]
+position = Vector2(768, 455)
 
 [node name="cabines-back" type="Node" parent="."]
 
@@ -544,9 +567,6 @@ position = Vector2(1067, 601)
 
 [node name="AnimatedSprite2D32" parent="cabines-back" instance=ExtResource("7_m5ysn")]
 position = Vector2(1099, 601)
-
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_7ukio")]
-position = Vector2(580, 455)
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.0745098, 0.0745098, 0.141176, 1)
