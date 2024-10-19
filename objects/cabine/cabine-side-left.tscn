@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7intcm0l4ryg"]
 
-[ext_resource type="Texture2D" uid="uid://bkqri48dh7k32" path="res://assets/cabine/cabineSideLeft.png" id="1_jf23m"]
-[ext_resource type="Script" path="res://scripts/cabine/cabine_side_left.gd" id="2_740u8"]
+[ext_resource type="Texture2D" uid="uid://c8vuncjlmtgf3" path="res://assets/cabine/cabineSideLeft.png" id="1_jf23m"]
+[ext_resource type="Script" path="res://scripts/cabine/cabine.gd" id="2_6tlbj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxtcx"]
 atlas = ExtResource("1_jf23m")
@@ -33,7 +33,7 @@ size = Vector2(33, 26)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_adtpu")
-script = ExtResource("2_740u8")
+script = ExtResource("2_6tlbj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
