@@ -159,5 +159,8 @@ script = ExtResource("4_5ghdc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
+[node name="RayCastForHunting" type="RayCast2D" parent="."]
+target_position = Vector2(0, 58)
+
 [connection signal="area_entered" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_exited"]

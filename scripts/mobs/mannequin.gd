@@ -7,6 +7,8 @@ var target
 @onready var states: StateChart = $States
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audioPlayer = $AudioStreamPlayer2D
+@onready var detectionRotator = $detectionRotator
+@onready var huntingRay = $RayCastForHunting
 const SPEED = 40.0
 const directions = ["down", "left", "right", "up"]
 var direction = directions[0]
@@ -23,20 +25,28 @@ func _ready():
 func _physics_process(delta):
 	if target:
 		var target_pos = target.global_position
-		velocity = global_position.direction_to(target_pos) * SPEED
-		if velocity.y:
-			direction = "down" if velocity.y > 0.0 else "up"
+		huntingRay.target_position = target_pos
+		print_debug(str(huntingRay.get_collider()) + str(target.global_position))
+		if huntingRay.get_collider() != null:
+			velocity = global_position.direction_to(target_pos) * SPEED
+			if velocity.y:
+				direction = "down" if velocity.y > 0.0 else "up"
+				detectionRotator.rotation_degrees = 0 if velocity.y > 0.0 else 180
+			else:
+				direction = "left" if velocity.x < 0.0 else "right"
+				detectionRotator.rotation_degrees = 90 if velocity.y > 0.0 else 270
+				
+			states.send_event("run")
+			playAnimation("run_" + direction)
+			move_and_slide()
+			if randi_range(0,3000) == 3000:
+				#audioPlayer.stream = load("res://assets/sounds/chaserGhost_idle.mp3")
+				#audioPlayer.play()
+				pass
+			if debugnode:
+				debugnode.position = target_pos
 		else:
-			direction = "left" if velocity.x < 0.0 else "right"
-		states.send_event("run")
-		playAnimation("run_" + direction)
-		move_and_slide()
-		if randi_range(0,3000) == 3000:
-			#audioPlayer.stream = load("res://assets/sounds/chaserGhost_idle.mp3")
-			#audioPlayer.play()
-			pass
-		if debugnode:
-			debugnode.position = target_pos
+			target = null
 	else:
 		#states.send_event("idle")
 		pass
@@ -67,10 +77,3 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 		#audioPlayer.stream = load("res://assets/sounds/chaserGhost_take_chase.mp3")
 		#audioPlayer.play()
 		print_debug("Target spotted")
-
-
-func _on_detection_area_area_exited(area: Area2D) -> void:
-	print_debug(area.name)
-	if area.name == "InteractBox":
-		target = null
-		print_debug("Target lost")

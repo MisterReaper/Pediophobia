@@ -11,6 +11,7 @@ signal keyprompt
 #@onready var flashlightPosition = $flashlight/PositionAnimation
 #@onready var flashlightLight = $flashlight/LightAnimation
 @onready var keyPrompt = $KeyPrompt
+@onready var flashlight = $Camera2D/flashlight
 
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]

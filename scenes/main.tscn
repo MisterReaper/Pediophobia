@@ -304,3 +304,9 @@ position = Vector2(336, 448)
 
 [node name="TestMannequin" parent="." instance=ExtResource("10_blvxp")]
 position = Vector2(436, 397)
+
+[node name="Darkness" type="DirectionalLight2D" parent="."]
+position = Vector2(432, 527)
+color = Color(0.0745098, 0.0745098, 0.156863, 1)
+energy = 0.0
+blend_mode = 1
