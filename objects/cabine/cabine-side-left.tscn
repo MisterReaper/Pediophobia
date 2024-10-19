@@ -3,22 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://bkqri48dh7k32" path="res://assets/cabine/cabineSideLeft.png" id="1_jf23m"]
 [ext_resource type="Script" path="res://scripts/cabine/cabine.gd" id="2_6tlbj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nxtcx"]
-atlas = ExtResource("1_jf23m")
-region = Rect2(32, 0, 32, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ku27m"]
 atlas = ExtResource("1_jf23m")
 region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxtcx"]
+atlas = ExtResource("1_jf23m")
+region = Rect2(32, 0, 32, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_adtpu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nxtcx")
+"texture": SubResource("AtlasTexture_ku27m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ku27m")
+"texture": SubResource("AtlasTexture_nxtcx")
 }],
 "loop": true,
 "name": &"default",

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/key_prompt.gd" id="2_ta3wi"]
 [ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/E-Key.png" id="3_3imsg"]
 [ext_resource type="PackedScene" path="res://objects/ui/screen_overlay.tscn" id="5_sove7"]
-[ext_resource type="Texture2D" uid="uid://de5q20ep0ottl" path="res://assets/flashlight.png" id="6_51ng1"]
+[ext_resource type="Texture2D" uid="uid://mhef2oeccom2" path="res://assets/flashlight.png" id="6_51ng1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rupy"]
 atlas = ExtResource("2_3jv04")
