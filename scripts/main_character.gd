@@ -8,8 +8,8 @@ signal keyprompt
 @onready var hasKeys = false
 @onready var inHiding = false
 
-@onready var flashlightPosition = $flashlight/PositionAnimation
-@onready var flashlightLight = $flashlight/LightAnimation
+#@onready var flashlightPosition = $flashlight/PositionAnimation
+#@onready var flashlightLight = $flashlight/LightAnimation
 @onready var keyPrompt = $KeyPrompt
 
 const SPEED = 70.0
