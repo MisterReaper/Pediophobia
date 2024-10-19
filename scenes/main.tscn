@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=4 uid="uid://m870sdhfrdn6"]
+[gd_scene load_steps=15 format=4 uid="uid://m870sdhfrdn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxkq3lkrcdg4" path="res://assets/tilesetClothes-Sheet.png" id="1_0har7"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hy0x0"]
-[ext_resource type="Texture2D" uid="uid://dxsy1f6ohurja" path="res://assets/decorations.png" id="2_5m06f"]
+[ext_resource type="Texture2D" uid="uid://exj3u2gfw72h" path="res://assets/decorations.png" id="2_5m06f"]
 [ext_resource type="PackedScene" uid="uid://cs3hypa2a1jgs" path="res://objects/cloths_rack.tscn" id="2_7ukio"]
-[ext_resource type="Texture2D" uid="uid://bgfuxye22uovk" path="res://assets/counter.png" id="3_gknrb"]
+[ext_resource type="Texture2D" uid="uid://bfb8os8h70nxn" path="res://assets/counter.png" id="3_gknrb"]
 [ext_resource type="PackedScene" uid="uid://hwxixngelowu" path="res://objects/main_character.tscn" id="3_j3hyv"]
-[ext_resource type="PackedScene" uid="uid://bcoahqpdeyd0k" path="res://objects/cabine/cabine-front.tscn" id="4_uqs41"]
+[ext_resource type="PackedScene" uid="uid://dky7e27lken7u" path="res://objects/cabine/cabine-front.tscn" id="4_uqs41"]
 [ext_resource type="PackedScene" uid="uid://c7intcm0l4ryg" path="res://objects/cabine/cabine-side-left.tscn" id="5_57hob"]
 [ext_resource type="PackedScene" uid="uid://bj8cxb3h5te4e" path="res://objects/cabine/cabine-back.tscn" id="7_m5ysn"]
+[ext_resource type="PackedScene" uid="uid://dsod42uxlv8oe" path="res://objects/mobs/mannequin.tscn" id="10_blvxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ljd7y"]
 texture = ExtResource("1_0har7")
@@ -300,3 +301,6 @@ position = Vector2(336, 415)
 
 [node name="Cabine-Side-Left12" parent="CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 448)
+
+[node name="TestMannequin" parent="." instance=ExtResource("10_blvxp")]
+position = Vector2(436, 397)

@@ -1,7 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://dsod42uxlv8oe"]
+[gd_scene load_steps=20 format=3 uid="uid://dsod42uxlv8oe"]
 
 [ext_resource type="Texture2D" uid="uid://cj2f3pxnak3qg" path="res://assets/mobs/mannequin-Sheet.png" id="1_k7r4e"]
 [ext_resource type="Script" path="res://scripts/mobs/mannequin.gd" id="1_pcngw"]
+[ext_resource type="Script" path="res://addon/godot_state_charts/state_chart.gd" id="3_h437t"]
+[ext_resource type="Script" path="res://addon/godot_state_charts/state.gd" id="4_5ghdc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeonc"]
+atlas = ExtResource("1_k7r4e")
+region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnmdh"]
 atlas = ExtResource("1_k7r4e")
@@ -55,6 +61,14 @@ region = Rect2(352, 0, 32, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_aeonc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tnmdh")
 }, {
 "duration": 1.0,
@@ -64,7 +78,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_m0vn7")
 }],
 "loop": true,
-"name": &"walk_down",
+"name": &"run_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -78,7 +92,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_83wpu")
 }],
 "loop": true,
-"name": &"walk_left",
+"name": &"run_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -92,7 +106,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7068c")
 }],
 "loop": true,
-"name": &"walk_right",
+"name": &"run_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -106,22 +120,44 @@ animations = [{
 "texture": SubResource("AtlasTexture_2qlbu")
 }],
 "loop": true,
-"name": &"walk_up",
+"name": &"run_up",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0qab"]
-radius = 9.0
-height = 20.0
+radius = 6.0
+height = 12.0
 
 [node name="Mannequin" type="CharacterBody2D"]
 script = ExtResource("1_pcngw")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t0k7a")
-animation = &"walk_up"
+animation = &"idle"
 
 [node name="CollisionArea2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(0, 17)
+rotation = 3.14159
 shape = SubResource("CapsuleShape2D_u0qab")
+
+[node name="detectionRotator" type="Node2D" parent="."]
+
+[node name="detectionArea" type="Area2D" parent="detectionRotator"]
+rotation = 3.14159
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="detectionRotator/detectionArea"]
+position = Vector2(8.11258e-05, -25)
+scale = Vector2(1, 0.709674)
+polygon = PackedVector2Array(-9, 47, -32, -47, 32, -47, 9, 47)
+
+[node name="States" type="Node" parent="."]
+script = ExtResource("3_h437t")
+
+[node name="State" type="Node" parent="States"]
+script = ExtResource("4_5ghdc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_exited"]
