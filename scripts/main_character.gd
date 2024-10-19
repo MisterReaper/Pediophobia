@@ -15,11 +15,11 @@ signal keyprompt
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]
 var direction = directions[0]
+var dialogue = preload("res://objects/ui/dialogue_prompt.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -42,10 +42,10 @@ func handleInput():
 			else:
 				changeDirection("left" if moveDirection.x < 0.0 else "right")
 			#states.send_event("run")
-			#$Sprite.playAnimation("walk_" + direction)
+			$Sprite.play("walk_" + direction)
 		else:
 			#states.send_event("idle")
-			pass
+			$Sprite.play("idle_" + direction)
 
 func changeDirection(newDirection):
 	if direction != newDirection:
@@ -81,12 +81,14 @@ func contextAction():
 				visible = false
 				print_debug("hide")
 				return
-			if inHiding == true && area.get_parent().has_method("leaveCabine"):
+			elif inHiding == true && area.get_parent().has_method("leaveCabine"):
 				inHiding = false
 				visible = true
 				area.get_parent().leaveCabine()
 				print_debug("leave")
 				return
+			else:
+				dialog(["Seems to be occupied."])
 		return
 
 func deathBy(enemy):
@@ -95,3 +97,10 @@ func deathBy(enemy):
 	match enemy:
 		"mannequin":
 			print_debug("Tony became part of the clothing store")
+
+# This will want a Array of Strings
+# @tutorial: String[]
+func dialog(messages):
+	var d = dialogue.instantiate()
+	d.messages = messages
+	add_child(d)
