@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dklgv7img7af2"]
 
-[ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/E-Key.png" id="1_itp3u"]
+[ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/ui/E-Key.png" id="1_itp3u"]
 
 [node name="KeyPrompt" type="Control"]
 layout_mode = 3
