@@ -55,7 +55,8 @@ func changeDirection(newDirection):
 
 func _physics_process(_delta):
 	handleInput()
-	move_and_slide()
+	if inHiding == false:
+		move_and_slide()
 
 func _on_interact_box_area_entered(area: Area2D) -> void:
 	if area != null:
@@ -79,6 +80,7 @@ func contextAction():
 				area.get_parent().closeCabine()
 				inHiding = true
 				visible = false
+				
 				print_debug("hide")
 				return
 			elif inHiding == true && area.get_parent().has_method("leaveCabine"):
@@ -89,6 +91,8 @@ func contextAction():
 				return
 			else:
 				dialog(["Seems to be occupied."])
+		elif area.get_parent().has_method("interact"):
+			dialog(area.get_parent().interact())
 		return
 
 func deathBy(enemy):
@@ -101,6 +105,7 @@ func deathBy(enemy):
 # This will want a Array of Strings
 # @tutorial: String[]
 func dialog(messages):
-	var d = dialogue.instantiate()
-	d.messages = messages
-	add_child(d)
+	if messages != null:
+		var d = dialogue.instantiate()
+		d.messages = messages
+		add_child(d)
