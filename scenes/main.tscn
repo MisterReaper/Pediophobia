@@ -549,4 +549,4 @@ position = Vector2(580, 455)
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.0745098, 0.0745098, 0.141176, 1)
-energy = 12.0
+blend_mode = 1
