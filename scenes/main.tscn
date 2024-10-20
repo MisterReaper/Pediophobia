@@ -718,6 +718,7 @@ position = Vector2(1002, 110)
 [node name="TonysBag" parent="." instance=ExtResource("13_p7y3w")]
 position = Vector2(60, 351)
 
+[connection signal="finishGame" from="NavigationRegion2D/progression-areas/doorInteractionArea" to="." method="_on_door_interaction_area_finish_game"]
 [connection signal="restart" from="MainCharacter" to="." method="_on_main_character_restart"]
 [connection signal="tony_died" from="MainCharacter" to="." method="_on_main_character_tony_died"]
 [connection signal="bagIsPickedUp" from="TonysBag" to="." method="_on_tonys_bag_bag_is_picked_up"]

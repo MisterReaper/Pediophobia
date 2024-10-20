@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func turn_off_lights():
 	darkness.energy = 12
 	player.flashlight.energy = 1
+	$"NavigationRegion2D/progression-areas/doorInteractionArea".setDarknessEnabled(true)
 
 func _on_main_character_tony_died() -> void:
 	player.overlay.changeObjective("Objective:\nPress R to restart")
@@ -47,4 +48,6 @@ func placeKey():
 		key.global_position = player.global_position
 	else:
 		key.global_position = player.global_position
-	
+
+func _on_door_interaction_area_finish_game() -> void:
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

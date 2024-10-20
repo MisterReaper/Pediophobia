@@ -108,8 +108,9 @@ func contextAction():
 				dialog(["Seems to be occupied."])
 		elif area.name == "KeyInteractionBox":
 			overlay.addToContainer("key")
-			overlay.changeObjective("Objective:\nDon't die")
+			overlay.changeObjective("Objective:\nGet to the exit!")
 			dialog(area.get_parent().interact())
+			hasKeys = true
 			$KeyPrompt.visible = false
 		elif area.name == "BagInteractionBox":
 			dialog(area.get_parent().interact())
