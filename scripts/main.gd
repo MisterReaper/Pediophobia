@@ -4,7 +4,7 @@ extends Node2D
 @onready var player = $MainCharacter
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	player.dialog(["Clark meant the stuff was in the back.", "He probably meant by the cabines."])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
