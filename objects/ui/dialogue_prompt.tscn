@@ -4,7 +4,7 @@
 
 [node name="Dialogue" type="Node2D"]
 z_index = 3
-position = Vector2(0, -61)
+position = Vector2(0, -53)
 script = ExtResource("1_23ijd")
 
 [node name="Label" type="Label" parent="."]
