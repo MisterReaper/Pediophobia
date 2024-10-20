@@ -106,3 +106,6 @@ func char_is_hiding(state) -> void:
 
 func _on_navigation_agent_2d_target_reached() -> void:
 	target = null
+
+func removeSelf():
+	queue_free()

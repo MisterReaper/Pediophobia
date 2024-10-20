@@ -72,7 +72,6 @@ func _physics_process(_delta):
 		move_and_slide()
 
 func _on_interact_box_area_entered(area: Area2D) -> void:
-	print_debug(area.name)
 	if area != null && area.name.contains("Interaction"):
 
 		$KeyPrompt.visible = true
@@ -83,7 +82,6 @@ func _on_interact_box_area_exited(area: Area2D) -> void:
 	else:
 		#No more interactables?
 		for a in $InteractBox.get_overlapping_areas():
-			print_debug(area.name)
 			if(a.name.contains("Interaction")):
 				return
 		$KeyPrompt.visible = false
@@ -98,19 +96,17 @@ func contextAction():
 				inHiding = true
 				hiding.emit(true)
 				visible = false
-				
-				print_debug("hide")
 				return
+				
 			elif inHiding == true && area.get_parent().has_method("leaveCabine"):
 				inHiding = false
 				visible = true
 				hiding.emit(false)
 				area.get_parent().leaveCabine()
-				print_debug("leave")
 				return
 			else:
 				dialog(["Seems to be occupied."])
-		if area.name == "KeyInteractionBox":
+		elif area.name == "KeyInteractionBox":
 			overlay.addToContainer("key")
 			overlay.changeObjective("Objective:\nDon't die")
 			dialog(area.get_parent().interact())

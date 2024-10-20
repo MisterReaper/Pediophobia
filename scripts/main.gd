@@ -20,3 +20,16 @@ func _on_main_character_tony_died() -> void:
 
 func _on_main_character_restart() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_tonys_bag_bag_is_picked_up() -> void:
+	# Shit is about to go down
+	print_debug("Yeah, I'm here")
+	turn_off_lights()
+	removeAllEnemies()
+	
+func relocateEnemies():
+	pass
+
+func removeAllEnemies():
+	get_tree().call_group("enemy", "removeSelf")
