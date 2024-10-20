@@ -13,7 +13,7 @@ var target
 const SPEED = 80.0
 const ACCELERATION = 7
 const directions = ["down", "left", "right", "up"]
-var direction = directions[0]
+var directionAnimation = directions[0]
 var debugnode
 
 func _ready():
@@ -35,25 +35,14 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		velocity = velocity.lerp(direction*SPEED, ACCELERATION * delta)
 		
+		if velocity.y:
+			directionAnimation = "down" if velocity.y > 0.0 else "up"
+			detectionRotator.rotation_degrees = 0 if velocity.y > 0.0 else 180
+		else:
+			directionAnimation = "left" if velocity.x < 0.0 else "right"
+			detectionRotator.rotation_degrees = 90 if velocity.y > 0.0 else 270
+		playAnimation("run_" + directionAnimation)
 		move_and_slide()
-		
-		
-		
-		#var target_pos = target.global_position
-		#huntingRay.target_position = target_pos
-		#print_debug(str(huntingRay.get_collider()) + str(target.global_position))
-		#if huntingRay.get_collider() != null:
-		#	velocity = global_position.direction_to(target_pos) * SPEED
-		#	if velocity.y:
-		#		direction = "down" if velocity.y > 0.0 else "up"
-		#		detectionRotator.rotation_degrees = 0 if velocity.y > 0.0 else 180
-		#	else:
-		#		direction = "left" if velocity.x < 0.0 else "right"
-		#		detectionRotator.rotation_degrees = 90 if velocity.y > 0.0 else 270
-		#		
-		#	states.send_event("run")
-		#	playAnimation("run_" + direction)
-		#	move_and_slide()
 		#	if randi_range(0,3000) == 3000:
 		#		#audioPlayer.stream = load("res://assets/sounds/chaserGhost_idle.mp3")
 		#		#audioPlayer.play()
@@ -77,7 +66,7 @@ func resetAnimation():
 
 func _on_idle_state_entered():
 	resetAnimation()
-	playAnimation("idle_" + direction)
+	playAnimation("idle_" + directionAnimation)
 
 func _on_hit_box_area_entered(body):
 	print_debug("Body entered: "+ body.name)
