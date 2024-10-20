@@ -6,9 +6,11 @@ signal directionChanged
 signal keyprompt
 signal tony_died
 signal restart
+signal hiding(state)
 
 @onready var hasKeys = false
 @onready var inHiding = false
+
 @onready var dead = false
 
 #@onready var flashlightPosition = $flashlight/PositionAnimation
@@ -26,6 +28,8 @@ var dialogue = preload("res://objects/ui/dialogue_prompt.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -70,6 +74,7 @@ func _physics_process(_delta):
 func _on_interact_box_area_entered(area: Area2D) -> void:
 	print_debug(area.name)
 	if area != null && area.name.contains("Interaction"):
+
 		$KeyPrompt.visible = true
 
 func _on_interact_box_area_exited(area: Area2D) -> void:
@@ -91,6 +96,7 @@ func contextAction():
 			if inHiding == false && area.get_parent().has_method("closeCabine") && area.get_parent().isClosed() != 1:
 				area.get_parent().closeCabine()
 				inHiding = true
+				hiding.emit(true)
 				visible = false
 				
 				print_debug("hide")
@@ -98,6 +104,7 @@ func contextAction():
 			elif inHiding == true && area.get_parent().has_method("leaveCabine"):
 				inHiding = false
 				visible = true
+				hiding.emit(false)
 				area.get_parent().leaveCabine()
 				print_debug("leave")
 				return
@@ -131,3 +138,7 @@ func dialog(messages):
 		var d = dialogue.instantiate()
 		d.messages = messages
 		add_child(d)
+
+
+func _on_hiding(state: Variant) -> void:
+	get_tree().call_group("enemy", "char_is_hiding",state)

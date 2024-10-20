@@ -15,9 +15,13 @@ const ACCELERATION = 7
 const directions = ["down", "left", "right", "up"]
 var directionAnimation = directions[0]
 var debugnode
+@onready var startPosition = self.global_position
+var mainCharInHiding
+var targetIsChar = false
 
 func _ready():
 	add_to_group("enemy")
+	mainCharInHiding = false
 	if false && OS.is_debug_build():
 		debugnode = $debugInfoTemplate
 		debugnode.visible = true
@@ -76,15 +80,29 @@ func _on_hit_box_area_entered(body):
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	print_debug("Body entered: "+ area.name)
-	if area.name == "InteractBox":
+	if area.name == "InteractBox" && !mainCharInHiding:
 		target = area
+		targetIsChar = true
+
 		#audioPlayer.stream = load("res://assets/sounds/chaserGhost_take_chase.mp3")
 		#audioPlayer.play()
 		print_debug("Target spotted")
 
 
 func _on_timer_timeout() -> void:
-	if target:
+	
+	if target && !mainCharInHiding && targetIsChar:
 		navigation_agent.target_position = target.global_position
+	elif global_position != startPosition:
+		targetIsChar = false
+		navigation_agent.target_position = startPosition
 	else:
 		pass
+
+
+func char_is_hiding(state) -> void:
+	mainCharInHiding = state
+	print_debug(mainCharInHiding)
+
+func _on_navigation_agent_2d_target_reached() -> void:
+	target = null
