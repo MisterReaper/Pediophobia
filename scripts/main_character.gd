@@ -64,7 +64,19 @@ func changeDirection(newDirection):
 	if direction != newDirection:
 		direction = newDirection
 		directionChanged.emit(direction)
-		#flashlightPosition.play(direction)
+		match direction:
+			"up":
+				flashlight.rotation_degrees = 180
+				flashlight.position = Vector2(0, -25)
+			"down":
+				flashlight.rotation_degrees = 0
+				flashlight.position = Vector2(0, 25)
+			"left":
+				flashlight.rotation_degrees = 90
+				flashlight.position = Vector2(-25, 0)
+			"right":
+				flashlight.rotation_degrees = 270
+				flashlight.position = Vector2(25, 0)
 
 func _physics_process(_delta):
 	handleInput()

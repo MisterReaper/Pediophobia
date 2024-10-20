@@ -199,7 +199,7 @@ script = ExtResource("1_k0g11")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mgcta")
-animation = &"tony_dead"
+animation = &"idle_up"
 
 [node name="InteractBox" type="Area2D" parent="."]
 
@@ -228,6 +228,7 @@ position_smoothing_enabled = true
 [node name="ScreenOverlay" parent="Camera2D" instance=ExtResource("5_sove7")]
 
 [node name="flashlight" type="PointLight2D" parent="Camera2D"]
+position = Vector2(0, 25)
 energy = 0.0
 texture = ExtResource("6_51ng1")
 
