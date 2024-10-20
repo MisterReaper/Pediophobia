@@ -656,3 +656,6 @@ position = Vector2(1002, 110)
 
 [node name="FrontKey" parent="." instance=ExtResource("12_jscg7")]
 position = Vector2(977, 280)
+
+[connection signal="restart" from="MainCharacter" to="." method="_on_main_character_restart"]
+[connection signal="tony_died" from="MainCharacter" to="." method="_on_main_character_tony_died"]

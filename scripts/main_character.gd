@@ -4,15 +4,19 @@ class_name MainCharacter
 
 signal directionChanged
 signal keyprompt
+signal tony_died
+signal restart
 
 @onready var hasKeys = false
 @onready var inHiding = false
+@onready var dead = false
 
 #@onready var flashlightPosition = $flashlight/PositionAnimation
 #@onready var flashlightLight = $flashlight/LightAnimation
 @onready var keyPrompt = $KeyPrompt
 @onready var flashlight = $Camera2D/flashlight
 @onready var overlay = $Camera2D/ScreenOverlay
+@onready var audioPlayer =$AudioStreamPlayer
 
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]
@@ -28,26 +32,29 @@ func _process(delta: float) -> void:
 	pass
 
 func handleInput():
-	
-	if OS.is_debug_build() and Input.is_key_pressed(KEY_4):
-		deathBy("kill_switch")
-	
-	if Input.is_action_just_pressed("interact"):
-		contextAction()
-	
-	if inHiding == false:
-		var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
-		velocity = moveDirection * SPEED
-		if moveDirection.length():
-			if moveDirection.y:
-				changeDirection("down" if moveDirection.y > 0.0 else "up")
+	if Input.is_key_pressed(KEY_R):
+		emit_signal("restart")
+	if dead == false:
+		if OS.is_debug_build() and Input.is_key_pressed(KEY_4):
+			deathBy("mannequin")
+		
+		if Input.is_action_just_pressed("interact"):
+			contextAction()
+		if inHiding == false:
+			var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
+			velocity = moveDirection * SPEED
+			if moveDirection.length():
+				if moveDirection.y:
+					changeDirection("down" if moveDirection.y > 0.0 else "up")
+				else:
+					changeDirection("left" if moveDirection.x < 0.0 else "right")
+				#states.send_event("run")
+				$Sprite.play("walk_" + direction)
 			else:
-				changeDirection("left" if moveDirection.x < 0.0 else "right")
-			#states.send_event("run")
-			$Sprite.play("walk_" + direction)
-		else:
-			#states.send_event("idle")
-			$Sprite.play("idle_" + direction)
+				#states.send_event("idle")
+				$Sprite.play("idle_" + direction)
+	else:
+		$Sprite.play("tony_dead")
 
 func changeDirection(newDirection):
 	if direction != newDirection:
@@ -57,7 +64,7 @@ func changeDirection(newDirection):
 
 func _physics_process(_delta):
 	handleInput()
-	if inHiding == false:
+	if inHiding == false && dead == false:
 		move_and_slide()
 
 func _on_interact_box_area_entered(area: Area2D) -> void:
@@ -107,10 +114,15 @@ func contextAction():
 
 func deathBy(enemy):
 	print_debug(enemy + " killed player")
-	
+	dead = true
+	emit_signal("tony_died")
 	match enemy:
 		"mannequin":
 			print_debug("Tony became part of the clothing store")
+			#Sound Effect by Ribhav Agrawal from Pixabay
+			var audiostream: AudioStream = preload("res://assets/sounds/hit-by-a-wood-230542.mp3")
+			audioPlayer.set_stream(audiostream)
+			audioPlayer.play()
 
 # This will want a Array of Strings
 # @tutorial: String[]
