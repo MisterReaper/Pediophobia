@@ -11,4 +11,6 @@ func _process(delta: float) -> void:
 	pass
 	
 func interact():
-	queue_free()
+	queue_free() # function gets still completed don't worry ;D
+	return ["Must be the front door key."]
+	

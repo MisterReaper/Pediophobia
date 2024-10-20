@@ -12,6 +12,7 @@ signal keyprompt
 #@onready var flashlightLight = $flashlight/LightAnimation
 @onready var keyPrompt = $KeyPrompt
 @onready var flashlight = $Camera2D/flashlight
+@onready var overlay = $Camera2D/ScreenOverlay
 
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]
@@ -63,13 +64,17 @@ func _on_interact_box_area_entered(area: Area2D) -> void:
 	print_debug(area.name)
 	if area != null && area.name.contains("Interaction"):
 		$KeyPrompt.visible = true
-	pass
 
 func _on_interact_box_area_exited(area: Area2D) -> void:
-	print_debug($InteractBox.get_overlapping_areas().size() )
 	if $InteractBox.get_overlapping_areas() == null || $InteractBox.get_overlapping_areas().size() == 0: 
 		$KeyPrompt.visible = false
-		
+	else:
+		#No more interactables?
+		for a in $InteractBox.get_overlapping_areas():
+			print_debug(area.name)
+			if(a.name.contains("Interaction")):
+				return
+		$KeyPrompt.visible = false
 
 func contextAction():
 	if $InteractBox.get_overlapping_areas() == null : return
@@ -91,6 +96,11 @@ func contextAction():
 				return
 			else:
 				dialog(["Seems to be occupied."])
+		if area.name == "KeyInteractionBox":
+			overlay.addToContainer("key")
+			overlay.changeObjective("Objective:\nDon't die")
+			dialog(area.get_parent().interact())
+			$KeyPrompt.visible = false
 		elif area.get_parent().has_method("interact"):
 			dialog(area.get_parent().interact())
 		return
