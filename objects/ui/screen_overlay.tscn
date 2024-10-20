@@ -5,14 +5,16 @@
 [node name="ScreenOverlay" type="CanvasLayer"]
 script = ExtResource("1_8csl1")
 
-[node name="ObjectiveText" type="RichTextLabel" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -181.0
+offset_left = -134.0
 offset_bottom = 49.0
 grow_horizontal = 0
-bbcode_enabled = true
+
+[node name="ObjectiveText" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Objective:
 Be Gay, Do Crime"
-fit_content = true
