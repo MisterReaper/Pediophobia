@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://cte1upbxvvgsb"]
+
+[ext_resource type="Script" path="res://scripts/mobs/inactive_mannequin.gd" id="1_a3st7"]
+[ext_resource type="Texture2D" uid="uid://cj2f3pxnak3qg" path="res://assets/mobs/mannequin-Sheet.png" id="1_vbusj"]
+[ext_resource type="Texture2D" uid="uid://dghwucf4imcdv" path="res://assets/mobs/mannequin_headless-Sheet.png" id="2_7xx8a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0oq11"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk57b"]
+atlas = ExtResource("1_vbusj")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_motl3"]
+atlas = ExtResource("1_vbusj")
+region = Rect2(288, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i28y"]
+atlas = ExtResource("2_7xx8a")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kiy0"]
+atlas = ExtResource("2_7xx8a")
+region = Rect2(288, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evpab"]
+atlas = ExtResource("2_7xx8a")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m56nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk57b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_motl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i28y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kiy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evpab")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InactiveMannequin" type="CharacterBody2D"]
+script = ExtResource("1_a3st7")
+
+[node name="CollisionArea2D" type="CollisionShape2D" parent="."]
+z_index = 1
+rotation = 3.14159
+shape = SubResource("CapsuleShape2D_0oq11")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m56nb")
