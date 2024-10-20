@@ -15,8 +15,13 @@ func _process(delta: float) -> void:
 func changeObjective(text):
 	objectiveText.text = text
 
-func addToContainer(object):
-	container.add_child(object)
+func addToContainer(objectName):
+	print_debug(objectName)
+	if(objectName == "key"):
+		var uiKey = preload("res://objects/ui/ui_key.tscn").instantiate()
+		container.add_child(uiKey)
+		container.move_child(uiKey, 0)
+		print_debug("Added a key to your inventory")
 
 func removeFromContainer(object):
 	container.remove_child(object)

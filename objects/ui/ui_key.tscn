@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmrkxboa5paye"]
+
+[ext_resource type="Texture2D" uid="uid://cxkig08tt0ti6" path="res://assets/Key_Sprite.png" id="1_pigjf"]
+
+[node name="ui_key" type="TextureRect"]
+texture = ExtResource("1_pigjf")
