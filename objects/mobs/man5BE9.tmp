@@ -175,5 +175,4 @@ autostart = true
 
 [connection signal="area_entered" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_exited"]
-[connection signal="target_reached" from="Navigation/NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

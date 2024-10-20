@@ -2,16 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://clxkq3lkrcdg4" path="res://assets/tilesetClothes-Sheet.png" id="1_0har7"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_phbbt"]
-[ext_resource type="Texture2D" uid="uid://exj3u2gfw72h" path="res://assets/decorations.png" id="2_5m06f"]
+[ext_resource type="Texture2D" uid="uid://dxsy1f6ohurja" path="res://assets/decorations.png" id="2_5m06f"]
 [ext_resource type="PackedScene" uid="uid://cs3hypa2a1jgs" path="res://objects/cloths_rack.tscn" id="2_7ukio"]
-[ext_resource type="Texture2D" uid="uid://bfb8os8h70nxn" path="res://assets/counter.png" id="3_gknrb"]
+[ext_resource type="Texture2D" uid="uid://bgfuxye22uovk" path="res://assets/counter.png" id="3_gknrb"]
 [ext_resource type="PackedScene" uid="uid://hwxixngelowu" path="res://objects/main_character.tscn" id="3_j3hyv"]
-[ext_resource type="Texture2D" uid="uid://cqureei2ciw0b" path="res://assets/clothes-deco.png" id="4_frfeo"]
+[ext_resource type="Texture2D" uid="uid://skjg5ncso1r1" path="res://assets/clothes-deco.png" id="4_frfeo"]
 [ext_resource type="PackedScene" uid="uid://bcoahqpdeyd0k" path="res://objects/cabine/cabine-front.tscn" id="4_uqs41"]
 [ext_resource type="PackedScene" uid="uid://c7intcm0l4ryg" path="res://objects/cabine/cabine-side-left.tscn" id="5_57hob"]
 [ext_resource type="PackedScene" uid="uid://bj8cxb3h5te4e" path="res://objects/cabine/cabine-back.tscn" id="7_m5ysn"]
 [ext_resource type="PackedScene" uid="uid://dsod42uxlv8oe" path="res://objects/mobs/mannequin.tscn" id="11_opprr"]
-[ext_resource type="PackedScene" uid="uid://b81ul70hgbrsk" path="res://objects/front_key.tscn" id="12_jscg7"]
+[ext_resource type="PackedScene" path="res://objects/front_key.tscn" id="12_jscg7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dnrx3"]
 vertices = PackedVector2Array(554, 79.5391, 554, 501, 539, 236.133, 539, 113.461, 551, 79.5703, 715, 284.133, 715, 214, 742, 115, 742, 501, 715, 188.133, 443, 332.133, 443, 241.461, 455, 273.172, 455, 396.133, 715, 118, 606, 115, 631, 118, 455, 113.172, 455, 236.133, 443, 204.133, 443, 113.461, 134, 503, 134, 604.906, 121, 573, 133, 503, 249, 573, 249, 329, 263, 560.133, 263, 598, 247, 598, 197, 573, 539, 396.133, 443, 460.133, 443, 369.461, 59, 604.367, 69, 573, 59, 329, 69, 329, 121, 329, 133, 329, 606, 501, 631, 188.133, 407, 369.172, 391, 332.133, 263, 495.578, 279, 495.453, 279, 495.578, 272, 540, 295, 495.453, 295, 495.578, 375, 79.5781, 391, 79.4531, 391, 79.5781, 362, 495, 407, 79.4531, 407, 79.5781, 422, 79.4609, 422, 94.5, 407, 113.172, 535, 79.5781, 551, 79.4531, 522, 97, 807, 79.5781, 823, 79.4531, 823, 79.5781, 794, 501, 838, 79.4609, 838, 81, 903, 79.5781, 919, 79.4531, 919, 79.5781, 935, 79.4531, 935, 79.5781, 951, 79.4531, 951, 79.5781, 967, 79.4531, 967, 79.5781, 983, 79.4531, 983, 79.5781, 999, 79.4531, 999, 79.5781, 1015, 79.4531, 1015, 79.5781, 1031, 79.4531, 1031, 79.5781, 1047, 79.4531, 1047, 79.5781, 1035, 102, 1063, 79.4531, 1063, 79.5781, 1030, 515.883, 1018, 531.883, 1018, 515.883, 1035, 156.133, 1079, 79.4531, 1079, 79.5781, 1095, 79.4531, 1095, 79.5781, 1111, 79.4531, 1111, 515.883, 503, 113.172, 503, 113.289, 487, 113.172, 486, 97, 487, 113.289, 471, 113.172, 471, 113.289, 407, 113.289, 391, 113.172, 503, 273.172, 503, 273.289, 487, 273.172, 487, 273.289, 471, 273.172, 471, 273.289, 407, 241.172, 407, 241.289, 391, 241.172, 407, 369.289, 391, 369.172, 362, 79.5469, 375, 79.4531, 522, 79.5469, 535, 79.4531, 794, 79.5469, 807, 79.4531, 891, 79.5391, 903, 79.4531, 891, 102, 247, 605.727, 186, 605.297, 186, 471, 197, 329, 1009, 598, 1009, 603.141, 957, 603.211, 957, 598, 998, 561, 841, 598, 841, 603.352, 789, 603.422, 789, 598, 806, 561, 673, 598, 673, 603.563, 621, 603.633, 621, 598, 666, 561, 505, 598, 505, 603.781, 453, 603.844, 453, 598, 474, 561, 1030, 531.883, 934, 515.883, 934, 531.883, 922, 531.883, 922, 515.883, 838, 515.883, 838, 531.883, 826, 531.883, 826, 515.883, 742, 515.883, 742, 531.883, 730, 531.883, 730, 515.883, 646, 515.883, 646, 531.883, 634, 531.883, 634, 515.883, 550, 515.883, 550, 531.883, 538, 531.883, 538, 515.883, 454, 515.883, 454, 531.883, 442, 531.883, 442, 515.883, 358, 558.5, 422, 558.5, 422, 561, 347, 598, 347, 560.133, 474, 558.5, 518, 558.5, 518, 561, 570, 561, 570, 558.5, 614, 558.5, 614, 561, 666, 558.5, 710, 558.5, 710, 561, 762, 561, 762, 558.5, 806, 558.5, 858, 561, 858, 558.5, 902, 558.5, 902, 561, 954, 561, 954, 558.5, 998, 558.5, 1050, 561, 1050, 558.5, 1094, 558.5, 1094, 561, 1111, 561, 1111, 598, 272, 560.133, 185, 471, 185, 329, 27, 329, 27, 321, 42, 321, 42, 307, 263, 307, 340.852, 540, 331, 495.313, 331, 495, 358, 515.883, 486, 94.5, 631, 214, 631, 284.133, 839, 81, 839, 156.133, 341.156, 560.133, 391, 204.133, 715, 476.133, 715, 406, 715, 380.133, 631, 380.133, 631, 406, 631, 476.133, 539, 273.461, 391, 460.133, 715, 310, 631, 310)
@@ -375,38 +375,20 @@ tile_set = SubResource("TileSet_qcmgn")
 
 [node name="CabineLeft" type="Node" parent="NavigationRegion2D"]
 
-[node name="Cabine-Side-Left" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
-position = Vector2(336, 85)
-
 [node name="Cabine-Side-Left2" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 118)
-
-[node name="Cabine-Side-Left3" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
-position = Vector2(336, 151)
 
 [node name="Cabine-Side-Left4" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 184)
 
-[node name="Cabine-Side-Left5" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
-position = Vector2(336, 217)
-
 [node name="Cabine-Side-Left6" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 250)
-
-[node name="Cabine-Side-Left7" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
-position = Vector2(336, 283)
 
 [node name="Cabine-Side-Left8" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 316)
 
-[node name="Cabine-Side-Left9" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
-position = Vector2(336, 349)
-
 [node name="Cabine-Side-Left10" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 382)
-
-[node name="Cabine-Side-Left11" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
-position = Vector2(336, 415)
 
 [node name="Cabine-Side-Left12" parent="NavigationRegion2D/CabineLeft" instance=ExtResource("5_57hob")]
 position = Vector2(336, 448)
@@ -589,7 +571,7 @@ position = Vector2(1067, 601)
 position = Vector2(1099, 601)
 
 [node name="MainCharacter" parent="." instance=ExtResource("3_j3hyv")]
-position = Vector2(1073, 68)
+position = Vector2(379, 311)
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.0745098, 0.0745098, 0.141176, 1)
