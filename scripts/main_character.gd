@@ -111,6 +111,9 @@ func contextAction():
 			overlay.changeObjective("Objective:\nDon't die")
 			dialog(area.get_parent().interact())
 			$KeyPrompt.visible = false
+		elif area.name == "BagInteractionBox":
+			dialog(area.get_parent().interact())
+			$KeyPrompt.visible = false
 		elif area.get_parent().has_method("interact"):
 			dialog(area.get_parent().interact())
 		return
