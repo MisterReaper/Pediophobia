@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var darkness = $Darkness
 @onready var player = $MainCharacter
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.dialog(["Clark meant the stuff was in the back.", "He probably meant by the cabines."])
@@ -27,9 +28,23 @@ func _on_tonys_bag_bag_is_picked_up() -> void:
 	player.overlay.changeObjective("Objective:\nGet out.")
 	turn_off_lights()
 	relocateEnemies()
+	placeKey()
 	
 func relocateEnemies():
 	pass
 
 func removeAllEnemies():
 	get_tree().call_group("enemy", "removeSelf")
+
+func placeKey():
+	var r = randi_range(0,2)
+	var key = preload("res://objects/front_key.tscn").instantiate()
+	add_child(key)
+	#Please add proper positions then delete comment
+	if r == 0:
+		key.global_position = player.global_position
+	elif r == 1:
+		key.global_position = player.global_position
+	else:
+		key.global_position = player.global_position
+	

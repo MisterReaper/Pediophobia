@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://m870sdhfrdn6"]
+[gd_scene load_steps=21 format=4 uid="uid://m870sdhfrdn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxkq3lkrcdg4" path="res://assets/tilesetClothes-Sheet.png" id="1_0har7"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_phbbt"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c7intcm0l4ryg" path="res://objects/cabine/cabine-side-left.tscn" id="5_57hob"]
 [ext_resource type="PackedScene" uid="uid://bj8cxb3h5te4e" path="res://objects/cabine/cabine-back.tscn" id="7_m5ysn"]
 [ext_resource type="PackedScene" uid="uid://dsod42uxlv8oe" path="res://objects/mobs/mannequin.tscn" id="11_opprr"]
-[ext_resource type="PackedScene" uid="uid://b81ul70hgbrsk" path="res://objects/front_key.tscn" id="12_jscg7"]
 [ext_resource type="PackedScene" uid="uid://dro8tmxnr0ibs" path="res://objects/tonys_bag.tscn" id="13_p7y3w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dnrx3"]
@@ -699,9 +698,6 @@ position = Vector2(955, 110)
 
 [node name="Mannequin19" parent="mobs" instance=ExtResource("11_opprr")]
 position = Vector2(1002, 110)
-
-[node name="FrontKey" parent="." instance=ExtResource("12_jscg7")]
-position = Vector2(977, 280)
 
 [node name="TonysBag" parent="." instance=ExtResource("13_p7y3w")]
 position = Vector2(60, 351)
