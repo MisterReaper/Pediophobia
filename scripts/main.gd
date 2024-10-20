@@ -43,11 +43,11 @@ func placeKey():
 	add_child(key)
 	#Please add proper positions then delete comment
 	if r == 0:
-		key.global_position = player.global_position
+		key.global_position = Vector2(375, 100)
 	elif r == 1:
-		key.global_position = player.global_position
+		key.global_position = Vector2(980, 585)
 	else:
-		key.global_position = player.global_position
+		key.global_position = Vector2(785, 125)
 
 func _on_door_interaction_area_finish_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
