@@ -114,8 +114,11 @@ func contextAction():
 		elif area.name == "BagInteractionBox":
 			dialog(area.get_parent().interact())
 			$KeyPrompt.visible = false
-		elif area.get_parent().has_method("interact"):
+		elif area.get_parent().has_method("interact") :
+			print_debug("Nothing else to say?")
 			dialog(area.get_parent().interact())
+		elif area.has_method("interact"):
+			dialog(area.interact())
 		return
 
 func deathBy(enemy):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://m870sdhfrdn6"]
+[gd_scene load_steps=23 format=4 uid="uid://m870sdhfrdn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxkq3lkrcdg4" path="res://assets/tilesetClothes-Sheet.png" id="1_0har7"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_phbbt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcoahqpdeyd0k" path="res://objects/cabine/cabine-front.tscn" id="4_uqs41"]
 [ext_resource type="PackedScene" uid="uid://c7intcm0l4ryg" path="res://objects/cabine/cabine-side-left.tscn" id="5_57hob"]
 [ext_resource type="PackedScene" uid="uid://bj8cxb3h5te4e" path="res://objects/cabine/cabine-back.tscn" id="7_m5ysn"]
+[ext_resource type="Script" path="res://scripts/exit_door.gd" id="10_1awpw"]
 [ext_resource type="PackedScene" uid="uid://dsod42uxlv8oe" path="res://objects/mobs/mannequin.tscn" id="11_opprr"]
 [ext_resource type="PackedScene" uid="uid://dro8tmxnr0ibs" path="res://objects/tonys_bag.tscn" id="13_p7y3w"]
 
@@ -421,6 +422,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7satc")
 sources/1 = SubResource("TileSetAtlasSource_1jo2v")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_60qyj"]
+radius = 30.0167
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_phbbt")
 
@@ -633,8 +637,20 @@ position = Vector2(1067, 601)
 [node name="AnimatedSprite2D32" parent="NavigationRegion2D/cabines-back" instance=ExtResource("7_m5ysn")]
 position = Vector2(1099, 601)
 
+[node name="prompt-areas" type="Node" parent="NavigationRegion2D"]
+
+[node name="progression-areas" type="Node" parent="NavigationRegion2D"]
+
+[node name="doorInteractionArea" type="Area2D" parent="NavigationRegion2D/progression-areas"]
+position = Vector2(38, 0)
+script = ExtResource("10_1awpw")
+
+[node name="doorCollision" type="CollisionShape2D" parent="NavigationRegion2D/progression-areas/doorInteractionArea"]
+position = Vector2(1034, 70)
+shape = SubResource("CircleShape2D_60qyj")
+
 [node name="MainCharacter" parent="." instance=ExtResource("3_j3hyv")]
-position = Vector2(1072, 67)
+position = Vector2(1072, 110)
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
 color = Color(0.0745098, 0.0745098, 0.141176, 1)
