@@ -24,9 +24,9 @@ func _on_main_character_restart() -> void:
 
 func _on_tonys_bag_bag_is_picked_up() -> void:
 	# Shit is about to go down
-	print_debug("Yeah, I'm here")
+	player.overlay.changeObjective("Objective:\nGet out.")
 	turn_off_lights()
-	removeAllEnemies()
+	relocateEnemies()
 	
 func relocateEnemies():
 	pass
