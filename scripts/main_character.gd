@@ -86,7 +86,7 @@ func _physics_process(_delta):
 
 func _on_interact_box_area_entered(area: Area2D) -> void:
 	if area != null && area.name.contains("Interaction"):
-
+	
 		$KeyPrompt.visible = true
 
 func _on_interact_box_area_exited(area: Area2D) -> void:
@@ -117,6 +117,7 @@ func contextAction():
 				area.get_parent().leaveCabine()
 			else:
 				dialog(["Seems to be occupied."])
+			return
 		elif area.name == "KeyInteractionBox":
 			overlay.addToContainer("key")
 			overlay.changeObjective("Objective:\nGet to the exit!")
@@ -130,6 +131,7 @@ func contextAction():
 			print_debug("Nothing else to say?")
 			dialog(area.get_parent().interact())
 		elif area.has_method("interact"):
+			#For Interactable areas f.e. front door
 			dialog(area.interact())
 
 func deathBy(enemy):
