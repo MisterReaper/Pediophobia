@@ -19,6 +19,7 @@ signal hiding(state)
 @onready var flashlight = $Camera2D/flashlight
 @onready var overlay = $Camera2D/ScreenOverlay
 @onready var audioPlayer =$AudioStreamPlayer
+@onready var walkingPlayer =$Walking
 
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]
@@ -54,6 +55,10 @@ func handleInput():
 					changeDirection("left" if moveDirection.x < 0.0 else "right")
 				#states.send_event("run")
 				$Sprite.play("walk_" + direction)
+				if not walkingPlayer.playing:
+					var walkingstream: AudioStream = preload("res://assets/sounds/steps.mp3")
+					walkingPlayer.set_stream(walkingstream)
+					walkingPlayer.play()
 			else:
 				#states.send_event("idle")
 				$Sprite.play("idle_" + direction)
