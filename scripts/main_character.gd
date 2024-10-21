@@ -108,14 +108,12 @@ func contextAction():
 				inHiding = true
 				hiding.emit(true)
 				visible = false
-				return
 				
 			elif inHiding == true && area.get_parent().has_method("leaveCabine"):
 				inHiding = false
 				visible = true
 				hiding.emit(false)
 				area.get_parent().leaveCabine()
-				return
 			else:
 				dialog(["Seems to be occupied."])
 		elif area.name == "KeyInteractionBox":
@@ -132,7 +130,6 @@ func contextAction():
 			dialog(area.get_parent().interact())
 		elif area.has_method("interact"):
 			dialog(area.interact())
-		return
 
 func deathBy(enemy):
 	print_debug(enemy + " killed player")
