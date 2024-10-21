@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var darkness = $Darkness
 @onready var player = $MainCharacter
+@onready var backgroundMusicPlayer = $BackgroundMusic
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,12 @@ func _process(delta: float) -> void:
 	pass
 
 func turn_off_lights():
+	var audiostream: AudioStream = preload("res://assets/sounds/background-lights-out.mp3")
+	audiostream.loop=true
+	backgroundMusicPlayer.set_stream(audiostream)
+	backgroundMusicPlayer.play()
+	
+				
 	darkness.energy = 12
 	player.flashlight.energy = 1
 	$"NavigationRegion2D/progression-areas/doorInteractionArea".setDarknessEnabled(true)
