@@ -74,13 +74,11 @@ func _on_idle_state_entered():
 	playAnimation("idle_" + directionAnimation)
 
 func _on_hit_box_area_entered(body):
-	print_debug("Body entered: "+ body.name)
 	if body.name == "PlayerHitBox":
 		body.get_parent().deathBy("mannequin")
 
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
-	print_debug("Body entered: "+ area.name)
 	if area.name == "InteractBox" && !mainCharInHiding:
 		target = area
 		targetIsChar = true
