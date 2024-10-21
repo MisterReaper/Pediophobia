@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsod42uxlv8oe"]
+[gd_scene load_steps=21 format=3 uid="uid://dsod42uxlv8oe"]
 
-[ext_resource type="Texture2D" uid="uid://bmiout6x3gbqh" path="res://assets/mobs/mannequin-Sheet.png" id="1_k7r4e"]
+[ext_resource type="Texture2D" uid="uid://cj2f3pxnak3qg" path="res://assets/mobs/mannequin-Sheet.png" id="1_k7r4e"]
 [ext_resource type="Script" path="res://scripts/mobs/mannequin.gd" id="1_pcngw"]
 [ext_resource type="Script" path="res://addon/godot_state_charts/state_chart.gd" id="3_h437t"]
 [ext_resource type="Script" path="res://addon/godot_state_charts/state.gd" id="4_5ghdc"]
@@ -125,8 +125,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0qab"]
-radius = 11.0
-height = 22.0
+radius = 9.0
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5um8w"]
+radius = 16.0
 
 [node name="Mannequin" type="CharacterBody2D"]
 motion_mode = 1
@@ -173,11 +176,13 @@ wait_time = 0.1
 autostart = true
 
 [node name="hit_box" type="Area2D" parent="."]
+collision_layer = 2
 
-[node name="CollisionArea2D" type="CollisionShape2D" parent="hit_box"]
+[node name="CollisionAreaHitBox" type="CollisionShape2D" parent="hit_box"]
 z_index = 1
 rotation = 3.14159
-shape = SubResource("CapsuleShape2D_u0qab")
+shape = SubResource("CircleShape2D_5um8w")
+debug_color = Color(0.617288, 0.529908, 0.224808, 0.42)
 
 [connection signal="area_entered" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="detectionRotator/detectionArea" to="." method="_on_detection_area_area_exited"]
