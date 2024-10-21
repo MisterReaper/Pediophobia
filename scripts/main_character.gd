@@ -19,7 +19,6 @@ signal hiding(state)
 @onready var flashlight = $Camera2D/flashlight
 @onready var overlay = $Camera2D/ScreenOverlay
 @onready var audioPlayer =$AudioStreamPlayer
-@onready var audioPlayer2 =$AudioStreamPlayer2
 
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]
@@ -109,12 +108,18 @@ func contextAction():
 				inHiding = true
 				hiding.emit(true)
 				visible = false
+				var audiostream: AudioStream = preload("res://assets/sounds/curtain-close.mp3")
+				audioPlayer.set_stream(audiostream)
+				audioPlayer.play()
 				
 			elif inHiding == true && area.get_parent().has_method("leaveCabine"):
 				inHiding = false
 				visible = true
 				hiding.emit(false)
 				area.get_parent().leaveCabine()
+				var audiostream: AudioStream = preload("res://assets/sounds/curtain-open.mp3")
+				audioPlayer.set_stream(audiostream)
+				audioPlayer.play()
 			else:
 				dialog(["Seems to be occupied."])
 			return
@@ -142,12 +147,10 @@ func deathBy(enemy):
 		"mannequin":
 			print_debug("Tony became part of the clothing store")
 			#Sound Effect by Ribhav Agrawal from Pixabay
-			var audiostream: AudioStream = preload("res://assets/sounds/hit-by-a-wood-230542.mp3")
+			var audiostream: AudioStream = preload("res://assets/sounds/death.mp3")
 			audioPlayer.set_stream(audiostream)
 			audioPlayer.play()
-			audiostream = preload("res://assets/sounds/death.mp3")
-			audioPlayer2.set_stream(audiostream)
-			audioPlayer2.play()
+
 
 # This will want a Array of Strings
 # @tutorial: String[]

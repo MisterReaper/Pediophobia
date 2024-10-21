@@ -243,8 +243,6 @@ texture = ExtResource("6_51ng1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-
 [connection signal="hiding" from="." to="." method="_on_hiding"]
 [connection signal="area_entered" from="InteractBox" to="." method="_on_interact_box_area_entered"]
 [connection signal="area_exited" from="InteractBox" to="." method="_on_interact_box_area_exited"]

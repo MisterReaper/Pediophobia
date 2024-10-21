@@ -18,3 +18,5 @@ texture = ExtResource("1_osuem")
 shape = SubResource("CircleShape2D_gm1cx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
