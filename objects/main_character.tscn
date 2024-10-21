@@ -1,12 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://hwxixngelowu"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_k0g11"]
-[ext_resource type="Texture2D" uid="uid://d2wk4j2qlmedy" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
+[ext_resource type="Texture2D" uid="uid://dwraxmy4gyjta" path="res://assets/Tony-Sheet.png" id="2_3jv04"]
 [ext_resource type="Script" path="res://scripts/key_prompt.gd" id="2_ta3wi"]
-[ext_resource type="Texture2D" uid="uid://bv8t74s6mg8hj" path="res://assets/ui/E-Key.png" id="3_3imsg"]
-[ext_resource type="Texture2D" uid="uid://bogcjgdqbblmi" path="res://assets/TonyDead.png" id="3_4741w"]
-[ext_resource type="PackedScene" path="res://objects/ui/screen_overlay.tscn" id="5_sove7"]
-[ext_resource type="Texture2D" uid="uid://mhef2oeccom2" path="res://assets/flashlight.png" id="6_51ng1"]
+[ext_resource type="Texture2D" uid="uid://duvnbptg1ekgo" path="res://assets/ui/E-Key.png" id="3_3imsg"]
+[ext_resource type="Texture2D" uid="uid://bvq43030y6331" path="res://assets/TonyDead.png" id="3_4741w"]
+[ext_resource type="PackedScene" uid="uid://dd1vg6k3pxe4i" path="res://objects/ui/screen_overlay.tscn" id="5_sove7"]
+[ext_resource type="Texture2D" uid="uid://de5q20ep0ottl" path="res://assets/flashlight.png" id="6_51ng1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rupy"]
 atlas = ExtResource("2_3jv04")
@@ -217,6 +217,13 @@ script = ExtResource("2_ta3wi")
 [node name="FlashLightPlayer" type="AnimationPlayer" parent="FlashLight"]
 
 [node name="CollisionArea2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 17)
+shape = SubResource("CapsuleShape2D_45ds5")
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+
+[node name="PlayerHitBoxArea" type="CollisionShape2D" parent="PlayerHitBox"]
 z_index = 1
 position = Vector2(0, 17)
 shape = SubResource("CapsuleShape2D_45ds5")

@@ -21,6 +21,7 @@ var targetIsChar = false
 
 func _ready():
 	add_to_group("enemy")
+	
 	mainCharInHiding = false
 	if false && OS.is_debug_build():
 		debugnode = $debugInfoTemplate
@@ -74,8 +75,8 @@ func _on_idle_state_entered():
 
 func _on_hit_box_area_entered(body):
 	print_debug("Body entered: "+ body.name)
-	if body.name == "WholeBodyBox":
-		kills.emit("chaserGhost")
+	if body.name == "PlayerHitBox":
+		body.get_parent().deathBy("mannequin")
 
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
