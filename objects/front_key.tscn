@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b81ul70hgbrsk"]
+[gd_scene load_steps=4 format=3 uid="uid://hwnxnjgx878c"]
 
 [ext_resource type="Script" path="res://scripts/front_key.gd" id="1_kd220"]
 [ext_resource type="Texture2D" uid="uid://cxkig08tt0ti6" path="res://assets/Key_Sprite.png" id="1_osuem"]
@@ -16,3 +16,5 @@ texture = ExtResource("1_osuem")
 
 [node name="KeyInteractionBox" type="CollisionShape2D" parent="KeyInteractionBox"]
 shape = SubResource("CircleShape2D_gm1cx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

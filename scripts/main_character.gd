@@ -19,6 +19,7 @@ signal hiding(state)
 @onready var flashlight = $Camera2D/flashlight
 @onready var overlay = $Camera2D/ScreenOverlay
 @onready var audioPlayer =$AudioStreamPlayer
+@onready var audioPlayer2 =$AudioStreamPlayer2
 
 const SPEED = 70.0
 const directions = ["down", "left", "right", "up"]
@@ -142,6 +143,9 @@ func deathBy(enemy):
 			var audiostream: AudioStream = preload("res://assets/sounds/hit-by-a-wood-230542.mp3")
 			audioPlayer.set_stream(audiostream)
 			audioPlayer.play()
+			audiostream = preload("res://assets/sounds/death.mp3")
+			audioPlayer2.set_stream(audiostream)
+			audioPlayer2.play()
 
 # This will want a Array of Strings
 # @tutorial: String[]
