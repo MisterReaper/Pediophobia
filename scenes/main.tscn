@@ -737,6 +737,8 @@ position = Vector2(692, 435)
 [node name="TonysBag" parent="." instance=ExtResource("13_p7y3w")]
 position = Vector2(60, 351)
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
 [connection signal="finishGame" from="NavigationRegion2D/progression-areas/doorInteractionArea" to="." method="_on_door_interaction_area_finish_game"]
 [connection signal="finished" from="NavigationRegion2D/progression-areas/doorInteractionArea/AudioStreamPlayer" to="NavigationRegion2D/progression-areas/doorInteractionArea" method="_on_audio_stream_player_finished"]
 [connection signal="restart" from="MainCharacter" to="." method="_on_main_character_restart"]
