@@ -84,7 +84,7 @@ func placeKey():
 	elif r == 1:
 		key.global_position = Vector2(980, 585)
 	else:
-		key.global_position = Vector2(785, 125)
+		key.global_position = Vector2(725, 150)
 
 func _on_door_interaction_area_finish_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
