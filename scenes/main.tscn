@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://m870sdhfrdn6"]
+[gd_scene load_steps=23 format=4 uid="uid://m870sdhfrdn6"]
 
 [ext_resource type="Texture2D" uid="uid://clxkq3lkrcdg4" path="res://assets/tilesetClothes-Sheet.png" id="1_0har7"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_phbbt"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c7intcm0l4ryg" path="res://objects/cabine/cabine-side-left.tscn" id="5_57hob"]
 [ext_resource type="PackedScene" uid="uid://bj8cxb3h5te4e" path="res://objects/cabine/cabine-back.tscn" id="7_m5ysn"]
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="10_1awpw"]
-[ext_resource type="PackedScene" uid="uid://dsod42uxlv8oe" path="res://objects/mobs/mannequin.tscn" id="11_opprr"]
 [ext_resource type="PackedScene" path="res://objects/mobs/inactive_mannequin.tscn" id="13_de85i"]
 [ext_resource type="PackedScene" uid="uid://3fcd5pw24xio" path="res://objects/tonys_bag.tscn" id="13_p7y3w"]
 
@@ -675,30 +674,8 @@ blend_mode = 1
 
 [node name="mobs" type="Node" parent="."]
 
-[node name="Mannequin17" parent="mobs" instance=ExtResource("11_opprr")]
-position = Vector2(907, 110)
-
-[node name="Mannequin18" parent="mobs" instance=ExtResource("11_opprr")]
-position = Vector2(955, 110)
-
-[node name="Mannequin19" parent="mobs" instance=ExtResource("11_opprr")]
-position = Vector2(1002, 110)
-
-[node name="Mannequin" parent="mobs" instance=ExtResource("11_opprr")]
-position = Vector2(728, 167)
-scale = Vector2(1, 1)
-patrolPointB = Vector2(730, 500)
-
-[node name="Mannequin2" parent="mobs" instance=ExtResource("11_opprr")]
-position = Vector2(620, 503)
-patrolPointB = Vector2(620, 160)
-
 [node name="Node2D" type="Node2D" parent="mobs"]
-position = Vector2(40, 320)
-
-[node name="Mannequin3" parent="mobs" instance=ExtResource("11_opprr")]
-position = Vector2(259, 323)
-patrolPointB = Vector2(40, 320)
+position = Vector2(820, 500)
 
 [node name="inactive Mannequins" type="Node" parent="."]
 

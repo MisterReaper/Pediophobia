@@ -10,7 +10,7 @@ var target
 @onready var detectionRotator = $detectionRotator
 @onready var huntingRay = $RayCastForHunting
 @onready var navigation_agent: NavigationAgent2D = $Navigation/NavigationAgent2D
-const SPEED = 80.0
+const SPEED = 70.0
 const ACCELERATION = 7
 const directions = ["down", "left", "right", "up"]
 var directionAnimation = directions[0]
