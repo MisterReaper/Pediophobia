@@ -3,6 +3,7 @@ extends Node2D
 @onready var darkness = $Darkness
 @onready var player = $MainCharacter
 @onready var backgroundMusicPlayer = $BackgroundMusic
+@onready var mobNode = $mobs
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,8 +40,27 @@ func _on_tonys_bag_bag_is_picked_up() -> void:
 	placeKey()
 	
 func relocateEnemies():
-	pass
+	get_tree().call_group("inactive_mannequin", "removeSelf")
+	#
+	spawnMannequin(Vector2(190, 575), Vector2(190, 575))
+	#
+	spawnMannequin(Vector2(815, 300), Vector2(815, 300))
+	#West Kabinen
+	spawnMannequin(Vector2(450, 90), Vector2(450, 90))
+	spawnMannequin(Vector2(375, 100), Vector2(375, 100))
+	#Sued Korridor
+	spawnMannequin(Vector2(1100, 555), Vector2(1100, 555))
+	#Ost Rotation Duo
+	spawnMannequin(Vector2(815, 300), Vector2(815, 300))
+	spawnMannequin(Vector2(1060,450), Vector2(1060,450))
 
+func spawnMannequin(pos, posPointB):
+	var mannequin = preload("res://objects/mobs/mannequin.tscn").instantiate()
+	add_child(mannequin)
+	mannequin.global_position = pos
+	#
+	# Add the above code a second time for patrol point B
+	
 func removeAllEnemies():
 	get_tree().call_group("enemy", "removeSelf")
 
