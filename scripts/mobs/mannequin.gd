@@ -74,7 +74,7 @@ func _on_idle_state_entered():
 	playAnimation("idle_" + directionAnimation)
 
 func _on_hit_box_area_entered(body):
-	if body.name == "PlayerHitBox":
+	if body.name == "PlayerHitBox" && mainCharInHiding == false:
 		body.get_parent().deathBy("mannequin")
 
 
