@@ -7,6 +7,11 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.dialog(["Clark meant the stuff was in the back.", "He probably meant by the cabines."])
+	var audiostream: AudioStream = preload("res://assets/sounds/jingleeee.mp3")
+	
+	audiostream.loop=true
+	backgroundMusicPlayer.set_stream(audiostream)
+	backgroundMusicPlayer.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
