@@ -684,6 +684,22 @@ position = Vector2(955, 110)
 [node name="Mannequin19" parent="mobs" instance=ExtResource("11_opprr")]
 position = Vector2(1002, 110)
 
+[node name="Mannequin" parent="mobs" instance=ExtResource("11_opprr")]
+position = Vector2(728, 167)
+scale = Vector2(1, 1)
+patrolPointB = Vector2(730, 500)
+
+[node name="Mannequin2" parent="mobs" instance=ExtResource("11_opprr")]
+position = Vector2(620, 503)
+patrolPointB = Vector2(620, 160)
+
+[node name="Node2D" type="Node2D" parent="mobs"]
+position = Vector2(40, 320)
+
+[node name="Mannequin3" parent="mobs" instance=ExtResource("11_opprr")]
+position = Vector2(259, 323)
+patrolPointB = Vector2(40, 320)
+
 [node name="inactive Mannequins" type="Node" parent="."]
 
 [node name="InactiveMannequin" parent="inactive Mannequins" instance=ExtResource("13_de85i")]

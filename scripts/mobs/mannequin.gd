@@ -18,8 +18,12 @@ var debugnode
 @onready var startPosition = self.global_position
 var mainCharInHiding
 var targetIsChar = false
+@export var patrolPointB:Vector2
+var patrolToPointB
 
 func _ready():
+	target = patrolPointB
+	patrolToPointB = true
 	add_to_group("enemy")
 	
 	mainCharInHiding = false
@@ -33,7 +37,6 @@ func _ready():
 
 func _physics_process(delta):
 	if target:
-		
 		var direction = Vector2.ZERO
 		
 		direction = navigation_agent.get_next_path_position() - global_position
@@ -89,12 +92,14 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	
 	if target && !mainCharInHiding && targetIsChar:
 		navigation_agent.target_position = target.global_position
-	elif global_position != startPosition:
+	elif global_position != startPosition || global_position != patrolPointB:
 		targetIsChar = false
-		navigation_agent.target_position = startPosition
+		if patrolToPointB:
+			navigation_agent.target_position = patrolPointB
+		else:
+			navigation_agent.target_position = startPosition
 	else:
 		pass
 
@@ -104,7 +109,15 @@ func char_is_hiding(state) -> void:
 	print_debug(mainCharInHiding)
 
 func _on_navigation_agent_2d_target_reached() -> void:
-	target = null
+	if targetIsChar:
+		target=null
+	elif patrolToPointB:
+		target = patrolPointB
+		patrolToPointB=false
+	else:
+		target = startPosition
+		patrolToPointB=true
+
 
 func removeSelf():
 	queue_free()
