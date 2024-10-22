@@ -738,6 +738,7 @@ position = Vector2(692, 435)
 position = Vector2(60, 351)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 
 [connection signal="finishGame" from="NavigationRegion2D/progression-areas/doorInteractionArea" to="." method="_on_door_interaction_area_finish_game"]
 [connection signal="finished" from="NavigationRegion2D/progression-areas/doorInteractionArea/AudioStreamPlayer" to="NavigationRegion2D/progression-areas/doorInteractionArea" method="_on_audio_stream_player_finished"]
