@@ -47,22 +47,27 @@ func _on_tonys_bag_bag_is_picked_up() -> void:
 func relocateEnemies():
 	get_tree().call_group("inactive_mannequin", "removeSelf")
 	#
-	spawnMannequin(Vector2(190, 575), Vector2(190, 575))
-	#
-	spawnMannequin(Vector2(815, 300), Vector2(815, 300))
-	#West Kabinen
-	spawnMannequin(Vector2(450, 90), Vector2(450, 90))
-	spawnMannequin(Vector2(375, 100), Vector2(375, 100))
-	#Sued Korridor
-	spawnMannequin(Vector2(1100, 555), Vector2(1100, 555))
-	#Ost Rotation Duo
-	spawnMannequin(Vector2(815, 300), Vector2(815, 300))
-	spawnMannequin(Vector2(1060,450), Vector2(1060,450))
+	spawnMannequin(Vector2(250, 320), Vector2(40, 320))
+	spawnMannequin(Vector2(256, 350), Vector2(256, 590))
+	spawnMannequin(Vector2(350, 570), Vector2(1100, 570))
+	spawnMannequin(Vector2(620, 500), Vector2(620, 130))
+	spawnMannequin(Vector2(720, 130), Vector2(720, 500))
+	spawnMannequin(Vector2(907, 110), Vector2(0, 0))
+	spawnMannequin(Vector2(955, 110), Vector2(0, 0))
+	spawnMannequin(Vector2(1000, 110), Vector2(0, 0))
+	spawnMannequin(Vector2(375, 100), Vector2(375, 500))
+	spawnMannequin(Vector2(545, 100), Vector2(450, 390))
+	spawnMannequin(Vector2(1100, 265), Vector2(820, 265))
+	spawnMannequin(Vector2(820, 120), Vector2(820, 500))
+
 
 func spawnMannequin(pos, posPointB):
 	var mannequin = preload("res://objects/mobs/mannequin.tscn").instantiate()
-	add_child(mannequin)
 	mannequin.global_position = pos
+	mannequin.patrolPointB = posPointB
+	mannequin.z_index=1
+	add_child(mannequin)
+	
 	#
 	# Add the above code a second time for patrol point B
 	
@@ -79,7 +84,7 @@ func placeKey():
 	elif r == 1:
 		key.global_position = Vector2(980, 585)
 	else:
-		key.global_position = Vector2(785, 125)
+		key.global_position = Vector2(725, 150)
 
 func _on_door_interaction_area_finish_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
