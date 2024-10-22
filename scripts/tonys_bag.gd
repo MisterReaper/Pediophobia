@@ -18,7 +18,7 @@ func interact():
 		emit_signal("bagIsPickedUp")
 	
 	
-	return ["Fucking lights went out."]	
+	return ["Huh? The lights went out."]	
 
 
 func _on_audio_stream_player_finished() -> void:
