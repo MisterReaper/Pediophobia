@@ -6,6 +6,7 @@ class_name cabine
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
+	rng.randomize()
 	frame = rng.randi_range(0,1)
 
 
