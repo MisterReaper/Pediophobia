@@ -75,9 +75,7 @@ func removeAllEnemies():
 	get_tree().call_group("enemy", "removeSelf")
 
 func placeKey():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var r = rng.randi_range(0,2)
+	var r = randi_range(0,2)
 	var key = preload("res://objects/front_key.tscn").instantiate()
 	add_child(key)
 	#Please add proper positions then delete comment
