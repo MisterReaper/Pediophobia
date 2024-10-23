@@ -113,6 +113,7 @@ func contextAction():
 				inHiding = true
 				hiding.emit(true)
 				visible = false
+				$CollisionArea2D.disabled = true
 				var audiostream: AudioStream = preload("res://assets/sounds/curtain-close.mp3")
 				audioPlayer.set_stream(audiostream)
 				audioPlayer.play()
@@ -121,6 +122,7 @@ func contextAction():
 				inHiding = false
 				visible = true
 				hiding.emit(false)
+				$CollisionArea2D.disabled = false
 				area.get_parent().leaveCabine()
 				var audiostream: AudioStream = preload("res://assets/sounds/curtain-open.mp3")
 				audioPlayer.set_stream(audiostream)
