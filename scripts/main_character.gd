@@ -128,7 +128,7 @@ func contextAction():
 				audioPlayer.set_stream(audiostream)
 				audioPlayer.play()
 			else:
-				dialog(["Seems to be occupied."])
+				dialog(["The curtain is stuck."])
 			return
 		elif area.name == "KeyInteractionBox":
 			overlay.addToContainer("key")
